@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+    <%= user.name %>
+  </title>
+  <link rel="stylesheet" href="../public/style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nova+Flat">
+</head>
+
+<body>
+  <div class="header">
+    <% include ./layouts/logo.ejs %>
+    <span class="header-item">
+      <a href="/">Home</a>
+    </span>
+  </div>
+  <h2 class="user-name">
+    <%= user.name %>
+  </h2>
+  <img src=<%=user.img %>
+  alt="user profile image" class="user-pic">
+  <div class="user-info">
+    <h3>User Info</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, nulla ut! Hic sit facere voluptates? Itaque fuga
+      odit odio, modi sapiente a, numquam illo ratione aliquid maxime iure animi error, rerum eius! Quibusdam,
+      reprehenderit! Vel aut sint cupiditate obcaecati natus aliquam quidem a, ratione, quos, ducimus autem unde
+      praesentium voluptates?</p>
+  </div>
+  <h3>Friends</h3>
+  <% if (user.friends === []) { %>
+  <ul>
+    <% user.friends.forEach(friend => { %>
+    <li>
+      <%= friend %>
+    </li>
+    <% }) %>
+  </ul>
+  <% } else { %>
+  <button>Find Friends</button>
+  <% } %>
+
+  <script src="../public/script.js"></script>
+</body>
+
+</html>
